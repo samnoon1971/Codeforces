@@ -1,0 +1,17 @@
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+let data = [];
+rl.on('line', (input) => {
+    data.push(input.split(' ').map(Number));
+});
+rl.on('close', () => {
+    solve(data);
+});
+function solve(data){
+    data.shift()
+    console.log(data.reduce((ans, [a, b, c]) => a+b+c >= 2 ? ans + 1: ans, 0));
+}

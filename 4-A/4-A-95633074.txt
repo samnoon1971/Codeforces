@@ -1,0 +1,18 @@
+const readline = require("readline");
+const solve = readline.createInterface({
+    input: process.stdin
+});
+
+const main = () => {
+    solve.question("", function(weight) {
+        if((Number(weight) !== 2) && (Number(weight)%2 === 0)){
+            console.log('YES');
+        }
+        else{
+            console.log('NO')
+        }
+        solve.close()
+
+    })
+}
+main()

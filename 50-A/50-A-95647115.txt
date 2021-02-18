@@ -1,0 +1,16 @@
+const readline = require("readline");
+const solve = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+let data = [];
+const main = () => {
+    solve.question('', (value) => {
+      data = value.split(' ').map(Number);
+      var res = data[0] * data[1];
+      res /= 2;
+      console.log(Math.floor(res));
+      solve.close();
+    })
+}
+main()

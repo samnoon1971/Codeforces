@@ -1,0 +1,27 @@
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+let data = [];
+rl.on('line', (input) => {
+    data.push(input);
+});
+rl.on('close', () => {
+    solve(data);
+});
+
+function solve(data) {
+    const MAXN = 10;
+    for(let i = 1; i < data.length; i++){
+        word = data[i];
+        len = word.length;
+        if(len > MAXN){
+            console.log(`${word[0]}${len-2}${word[len-1]}`);
+        }
+        else{
+            console.log(word);
+        }
+    }
+}

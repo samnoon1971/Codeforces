@@ -1,0 +1,38 @@
+let inputString = '';
+let currentLine = 0;
+process.stdin.on('data', (data) => {
+    inputString += data;
+})
+process.stdin.on('end', function (){
+    inputString = inputString
+        .trim()
+        .split('\n')
+        .map((str) => str.trim());
+    main();
+})
+function readLine(){
+    return inputString[currentLine++];
+}
+
+
+function main(){
+    let t = 1;
+    while(t--){
+       let n = +readLine();
+       let a = [];
+       a = readLine().split(' ').map(Number);
+       let mps = new Map(), cnt = 0;
+       for(let i=0; i<n; i++){
+           for(let j=0; j<33; j++){
+               let val = 1 << j;
+               let num = mps.get(val - a[i]);
+               if(num != undefined)  cnt += num;
+           }
+           let num = mps.get(a[i]);
+           if(num == undefined)
+               num = 0;
+           mps.set(a[i], num + 1);
+       }
+       console.log(cnt);
+    }
+}
